@@ -1,6 +1,6 @@
 package bookmark.controllers
 
-import com.aroundus.example.bookmark.domain.http.BookmarkRequests.{
+import bookmark.domain.http.BookmarkRequests.{
   CreateBookmarkRequest,
   GetBookmarkRequest,
   UpdateBookmarkRequest

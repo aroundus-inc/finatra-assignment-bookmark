@@ -1,4 +1,4 @@
-package com.aroundus.example.bookmark.domain
+package bookmark.domain
 
 /**
   * 1. 카테고리 구분하기 위한 필드

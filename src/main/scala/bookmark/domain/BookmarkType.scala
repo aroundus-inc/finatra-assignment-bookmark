@@ -1,4 +1,4 @@
-package com.aroundus.example.bookmark.domain
+package bookmark.domain
 
 sealed abstract class BookmarkType(val name: String)
 

@@ -1,7 +1,7 @@
 package bookmark.services
 
+import bookmark.domain.Bookmark
 import bookmark.repository.BookmarkRepository
-import com.aroundus.example.bookmark.domain.Bookmark
 import com.google.inject.{Inject, Singleton}
 
 // Write service logic

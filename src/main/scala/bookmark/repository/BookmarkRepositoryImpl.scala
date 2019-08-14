@@ -1,7 +1,7 @@
 package bookmark.repository
 
 import bookmark.Database
-import com.aroundus.example.bookmark.domain.{Bookmark, BookmarkType}
+import bookmark.domain.{Bookmark, BookmarkType}
 import com.google.inject.{Inject, Singleton}
 import slick.ast.BaseTypedType
 import slick.jdbc.JdbcType

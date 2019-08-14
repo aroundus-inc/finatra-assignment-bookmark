@@ -1,6 +1,6 @@
-package com.aroundus.example.bookmark.domain.http
+package bookmark.domain.http
 
-import com.aroundus.example.bookmark.domain.Bookmark
+import bookmark.domain.Bookmark
 import com.twitter.finatra.request.RouteParam
 
 object BookmarkRequests {

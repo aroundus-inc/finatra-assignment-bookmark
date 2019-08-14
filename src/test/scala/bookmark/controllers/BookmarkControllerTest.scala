@@ -1,8 +1,8 @@
 package bookmark.controllers
 
 import bookmark.BookmarkServer
+import bookmark.domain.{Bookmark, BookmarkType}
 import bookmark.repository.{BookmarkRepository, BookmarkRepositoryImpl}
-import com.aroundus.example.bookmark.domain.{Bookmark, BookmarkType}
 import com.google.inject.Stage
 import com.twitter.finagle.http.Status
 import com.twitter.finatra.http.EmbeddedHttpServer

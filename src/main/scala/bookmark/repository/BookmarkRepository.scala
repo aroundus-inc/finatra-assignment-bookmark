@@ -1,6 +1,6 @@
 package bookmark.repository
 
-import com.aroundus.example.bookmark.domain.Bookmark
+import bookmark.domain.Bookmark
 import com.google.inject.ImplementedBy
 
 @ImplementedBy(classOf[BookmarkRepositoryImpl])

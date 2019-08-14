@@ -1,6 +1,5 @@
 package bookmark.domain
 
-import com.aroundus.example.bookmark.domain.BookmarkType
 import com.fasterxml.jackson.core.{JsonGenerator, JsonParser}
 import com.fasterxml.jackson.databind.module.SimpleModule
 import com.fasterxml.jackson.databind.{
