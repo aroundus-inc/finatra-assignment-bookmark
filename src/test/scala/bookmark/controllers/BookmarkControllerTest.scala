@@ -2,13 +2,15 @@ package bookmark.controllers
 
 import bookmark.BookmarkServer
 import bookmark.domain.{Bookmark, BookmarkType}
-import bookmark.repository.{BookmarkRepository, BookmarkRepositoryImpl}
+import bookmark.repository.BookmarkRepository
 import com.google.inject.Stage
 import com.twitter.finagle.http.Status
 import com.twitter.finatra.http.EmbeddedHttpServer
 import com.twitter.finatra.json.FinatraObjectMapper
 import com.twitter.inject.server.FeatureTestMixin
 import org.scalatest._
+
+import scala.util.Random
 
 class BookmarkControllerTest
     extends WordSpec
@@ -22,13 +24,17 @@ class BookmarkControllerTest
     new EmbeddedHttpServer(new BookmarkServer, stage = Stage.DEVELOPMENT)
 
   val bookmarkRepository: BookmarkRepository =
-    injector.instance[BookmarkRepositoryImpl]
+    injector.instance[BookmarkRepository]
   val mapper: FinatraObjectMapper = injector.instance[FinatraObjectMapper]
 
-  "BookmarkControllerTest" should {
+  "BookmarkController" should {
+
+    /**
+      * API 테스트 코드 작성
+      */
     "handle bookmark apis" in {
       val bookmark = Bookmark(
-        id = "foo",
+        id = Random.alphanumeric.take(15).toString(),
         ownerID = "owner-foo",
         `type` = BookmarkType.Foo,
         targetID = "foo-foo"
