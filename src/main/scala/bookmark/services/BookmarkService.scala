@@ -9,5 +9,7 @@ trait BookmarkService {
 
   def updateBookmark(id: String, bookmark: Bookmark): Bookmark
 
+  def deleteBookmark(id: String): Unit
+
   def getBookmarks(id: Seq[String], ownerID: Seq[String]): Seq[Bookmark]
 }

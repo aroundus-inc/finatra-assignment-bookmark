@@ -1,6 +1,7 @@
 package bookmark.controllers
 
 import bookmark.BookmarkServer
+import bookmark.repository.{BookmarkRepository, BookmarkRepositoryImpl}
 import com.aroundus.example.bookmark.domain.{Bookmark, BookmarkType}
 import com.google.inject.Stage
 import com.twitter.finagle.http.Status
@@ -20,16 +21,19 @@ class BookmarkControllerTest
   override val server =
     new EmbeddedHttpServer(new BookmarkServer, stage = Stage.DEVELOPMENT)
 
+  val bookmarkRepository: BookmarkRepository =
+    injector.instance[BookmarkRepositoryImpl]
   val mapper: FinatraObjectMapper = injector.instance[FinatraObjectMapper]
 
   "BookmarkControllerTest" should {
-    "create new bookmark" in {
+    "handle bookmark apis" in {
       val bookmark = Bookmark(
         id = "foo",
         ownerID = "owner-foo",
         `type` = BookmarkType.Foo,
         targetID = "foo-foo"
       )
+
       val createdBookmark = server.httpPostJson[Bookmark](
         "/Bookmarks",
         postBody = mapper.writeValueAsString(bookmark),
@@ -37,22 +41,10 @@ class BookmarkControllerTest
       )
 
       createdBookmark shouldBe bookmark
-    }
 
-    "delete new bookmark" in {
-      val bookmark = Bookmark(
-        id = "foo",
-        ownerID = "owner-foo",
-        `type` = BookmarkType.Foo,
-        targetID = "foo-foo"
-      )
-      val createdBookmark = server.httpPostJson[Bookmark](
-        "/Bookmarks",
-        postBody = mapper.writeValueAsString(bookmark),
-        andExpect = Status.Ok
-      )
+      server.httpDelete(s"/Bookmarks/${bookmark.id}", andExpect = Status.Ok)
 
-      createdBookmark shouldBe bookmark
+      bookmarkRepository.findByID(bookmark.id) shouldBe empty
     }
   }
 }
