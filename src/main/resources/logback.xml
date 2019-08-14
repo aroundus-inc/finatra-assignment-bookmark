@@ -3,7 +3,7 @@
 
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
-      <pattern>%d %-5level [%thread] %logger{0}: %msg%n%xThrowable</pattern>
+      <pattern>%d %-5level [%thread] %logger{1}: %msg%n%xThrowable</pattern>
     </encoder>
   </appender>
 
@@ -11,7 +11,6 @@
     <appender-ref ref="STDOUT" />
   </root>
 
-  <logger name="slick.jdbc.JdbcBackend.benchmark"         level="DEBUG" />
   <logger name="slick.jdbc.JdbcBackend.statement"         level="DEBUG" />
   <logger name="slick.jdbc.JdbcBackend.parameter"         level="DEBUG" />
   <logger name="slick.jdbc.StatementInvoker.result"       level="DEBUG" />
