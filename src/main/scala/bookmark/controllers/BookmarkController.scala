@@ -1,11 +1,11 @@
-package com.aroundus.example.bookmark.controllers
+package bookmark.controllers
 
 import com.aroundus.example.bookmark.domain.http.BookmarkRequests.{
   CreateBookmarkRequest,
   GetBookmarkRequest,
   UpdateBookmarkRequest
 }
-import com.aroundus.example.bookmark.services.BookmarkService
+import bookmark.services.BookmarkService
 import com.google.inject.{Inject, Singleton}
 import com.twitter.finatra.http.Controller
 import com.twitter.util.FuturePool
@@ -16,19 +16,19 @@ class BookmarkController @Inject()(
   bookmarkService: BookmarkService
 ) extends Controller {
 
-  post("/bookmark") { request: CreateBookmarkRequest =>
+  post("/Bookmark") { request: CreateBookmarkRequest =>
     futurePool {
       bookmarkService.createBookmark(request.bookmark)
     }
   }
 
-  put("/bookmark/:id") { request: UpdateBookmarkRequest =>
+  put("/Bookmark/:id") { request: UpdateBookmarkRequest =>
     futurePool {
       bookmarkService.updateBookmark(request.id, request.bookmark)
     }
   }
 
-  get("/bookmark/:id") { request: GetBookmarkRequest =>
+  get("/Bookmark/:id") { request: GetBookmarkRequest =>
     futurePool {
       bookmarkService.getBookmarks(id = Seq(request.id), ownerID = Nil) match {
         case bookmark :: Nil =>

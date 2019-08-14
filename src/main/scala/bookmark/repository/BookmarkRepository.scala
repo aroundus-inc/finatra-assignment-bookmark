@@ -1,4 +1,4 @@
-package com.aroundus.example.bookmark.repository
+package bookmark.repository
 
 import com.aroundus.example.bookmark.domain.Bookmark
 import com.google.inject.ImplementedBy

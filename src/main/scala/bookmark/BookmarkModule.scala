@@ -1,4 +1,4 @@
-package com.aroundus.example.bookmark
+package bookmark
 
 import com.google.inject.{Provides, Singleton}
 import com.twitter.finatra.utils.FuturePools

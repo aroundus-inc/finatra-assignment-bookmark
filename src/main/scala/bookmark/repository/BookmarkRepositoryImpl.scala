@@ -1,6 +1,6 @@
-package com.aroundus.example.bookmark.repository
+package bookmark.repository
 
-import com.aroundus.example.bookmark.Database
+import bookmark.Database
 import com.aroundus.example.bookmark.domain.{Bookmark, BookmarkType}
 import com.google.inject.{Inject, Singleton}
 import slick.ast.BaseTypedType

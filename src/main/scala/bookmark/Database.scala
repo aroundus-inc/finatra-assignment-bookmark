@@ -1,4 +1,4 @@
-package com.aroundus.example.bookmark
+package bookmark
 
 import com.google.inject.Singleton
 import com.typesafe.config.ConfigFactory
