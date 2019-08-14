@@ -34,7 +34,7 @@ class BookmarkControllerTest
       */
     "handle bookmark apis" in {
       val bookmark = Bookmark(
-        id = Random.alphanumeric.take(15).toString(),
+        id = Random.alphanumeric.take(15).mkString,
         ownerID = "owner-foo",
         `type` = BookmarkType.Foo,
         targetID = "foo-foo"

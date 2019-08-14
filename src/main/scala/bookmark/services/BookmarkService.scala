@@ -11,5 +11,6 @@ trait BookmarkService {
 
   def deleteBookmark(id: String): Unit
 
+  // 조건에 따라 Parameter 추가, 혹은 method 추가
   def getBookmarks(id: Seq[String], ownerID: Seq[String]): Seq[Bookmark]
 }

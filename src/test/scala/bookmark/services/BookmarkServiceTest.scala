@@ -33,7 +33,7 @@ class BookmarkServiceTest
   "BookmarkService" should {
     "create new bookmark" in {
       val bookmark = Bookmark(
-        id = Random.alphanumeric.take(15).toString(),
+        id = Random.alphanumeric.take(15).mkString,
         ownerID = "owner-foo",
         `type` = BookmarkType.Foo,
         targetID = "foo-foo"
@@ -46,7 +46,7 @@ class BookmarkServiceTest
 
     "not create bookmark with same id" in {
       val bookmark = Bookmark(
-        id = Random.alphanumeric.take(15).toString(),
+        id = Random.alphanumeric.take(15).mkString,
         ownerID = "owner-foo",
         `type` = BookmarkType.Foo,
         targetID = "foo-foo"
