@@ -15,7 +15,7 @@ trait BookmarkRepository {
   import database.api._
 
   implicit val bookmarkTypeMapper
-  : JdbcType[BookmarkType] with BaseTypedType[BookmarkType] =
+    : JdbcType[BookmarkType] with BaseTypedType[BookmarkType] =
     MappedColumnType.base[BookmarkType, String](_.name, BookmarkType.valueOf)
 
   class BookmarkTable(tag: Tag) extends Table[Bookmark](tag, "bookmarks") {
