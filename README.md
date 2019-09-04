@@ -30,5 +30,6 @@
     - http://www.scalatest.org
 
 #### 참고할만한 예제들
+- https://medium.com/@dima.statz_89242/scala-introduction-for-java-developers-ffd53ad4f10d
 - https://github.com/ikhoon/finatra-mysql-seed
 - https://github.com/gabfssilva/finatra-slick-microservice

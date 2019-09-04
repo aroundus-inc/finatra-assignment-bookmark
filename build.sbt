@@ -14,6 +14,7 @@ lazy val versions = new {
 	val scalatest = "3.0.8"
 	val logback = "1.2.3"
 	val slick = "3.3.2"
+  val jackson = "2.9.9"
 }
 
 libraryDependencies ++= Seq(
@@ -24,9 +25,9 @@ libraryDependencies ++= Seq(
 	"com.h2database" % "h2" % "1.4.199",
 
 	"joda-time" % "joda-time" % "2.10.3",
-	"com.fasterxml.jackson.core" % "jackson-core" % "2.9.9",
-	"com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.9.9",
-	"com.fasterxml.jackson.datatype" % "jackson-datatype-joda" % "2.9.9",
+	"com.fasterxml.jackson.core" % "jackson-core" % versions.jackson,
+	"com.fasterxml.jackson.module" %% "jackson-module-scala" % versions.jackson,
+	"com.fasterxml.jackson.datatype" % "jackson-datatype-joda" % versions.jackson,
 
 	"com.twitter" %% "finatra-http" % versions.finatra % Test,
 	"com.twitter" %% "finatra-jackson" % versions.finatra % Test,
