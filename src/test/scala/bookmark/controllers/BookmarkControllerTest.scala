@@ -43,15 +43,15 @@ class BookmarkControllerTest
       bookmarkRepository.findByID(bookmark.id) shouldBe empty
 
       val createdBookmark = server.httpPostJson[Bookmark](
-        "/Bookmarks",
-        postBody = mapper.writeValueAsString(bookmark),
+        "/Bookmark",
+        postBody = mapper.writeValueAsString(Map("bookmark" -> bookmark)),
         andExpect = Status.Ok
       )
 
       createdBookmark shouldBe bookmark
       bookmarkRepository.findByID(bookmark.id) should not be empty
 
-      server.httpDelete(s"/Bookmarks/${bookmark.id}", andExpect = Status.Ok)
+      server.httpDelete(s"/Bookmark/${bookmark.id}", andExpect = Status.Ok)
 
       bookmarkRepository.findByID(bookmark.id) shouldBe empty
     }
