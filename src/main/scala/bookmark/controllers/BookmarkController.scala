@@ -57,8 +57,7 @@ class BookmarkController @Inject()(
   /**
   * TODO
   * 추가해야할 API
-  * 1. 북마크 카테고리 수정 API
-  * 2. 카테고리별 북마크 리스트 불러오기 API
-  * 3. 북마크 조회수 증가 API
+  * 1. 북마크 타입 수정 API
+  * 2. 타입별 북마크 리스트 불러오기 API
   */
 }

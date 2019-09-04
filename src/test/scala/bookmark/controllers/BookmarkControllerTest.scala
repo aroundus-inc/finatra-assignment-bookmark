@@ -4,7 +4,7 @@ import bookmark.BookmarkServer
 import bookmark.domain.{Bookmark, BookmarkType}
 import bookmark.repository.BookmarkRepository
 import com.google.inject.Stage
-import com.twitter.finagle.http.Status
+import com.twitter.finagle.http.{Request, Status}
 import com.twitter.finatra.http.EmbeddedHttpServer
 import com.twitter.finatra.json.FinatraObjectMapper
 import com.twitter.inject.server.FeatureTestMixin
@@ -42,6 +42,7 @@ class BookmarkControllerTest
 
       bookmarkRepository.findByID(bookmark.id) shouldBe empty
 
+      // 생성 API
       val createdBookmark = server.httpPostJson[Bookmark](
         "/Bookmark",
         postBody = mapper.writeValueAsString(Map("bookmark" -> bookmark)),
@@ -51,6 +52,26 @@ class BookmarkControllerTest
       createdBookmark shouldBe bookmark
       bookmarkRepository.findByID(bookmark.id) should not be empty
 
+      // 북마크 타입 수정 API
+      val updatedBookmark = server.httpPutJson[Bookmark](
+        path = s"/Bookmark/${bookmark.id}",
+        putBody = mapper.writeValueAsString(
+          Map("type" -> BookmarkType.Bar, "description" -> "Hello!")
+        )
+      )
+
+      updatedBookmark shouldBe bookmark
+        .copy(`type` = BookmarkType.Bar, description = Option("Hello!"))
+
+      // 타입별 북마크 리스트 불러오기 API
+      val barBookmarks = server.httpGetJson[Seq[Bookmark]](
+        Request.queryString("/Bookmarks", Map("type" -> BookmarkType.Bar.name)),
+        andExpect = Status.Ok
+      )
+
+      barBookmarks shouldBe Seq(updatedBookmark)
+
+      // 삭제 API
       server.httpDelete(s"/Bookmark/${bookmark.id}", andExpect = Status.Ok)
 
       bookmarkRepository.findByID(bookmark.id) shouldBe empty
