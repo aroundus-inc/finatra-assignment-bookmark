@@ -12,7 +12,7 @@ import com.twitter.finatra.http.Controller
 import com.twitter.util.FuturePool
 
 @Singleton
-class BookmarkController @Inject()(
+class BookmarkController @Inject() (
   futurePool: FuturePool,
   bookmarkService: BookmarkService
 ) extends Controller {

@@ -19,10 +19,10 @@ trait BookmarkRepository {
     MappedColumnType.base[BookmarkType, String](_.name, BookmarkType.valueOf)
 
   class BookmarkTable(tag: Tag) extends Table[Bookmark](tag, "bookmarks") {
-    def id: Rep[String] = column[String]("id", O.PrimaryKey)
-    def ownerID: Rep[String] = column[String]("owner_id")
-    def bookmarkType: Rep[BookmarkType] = column[BookmarkType]("type")
-    def targetID: Rep[String] = column[String]("target_id")
+    def id: Rep[String]                  = column[String]("id", O.PrimaryKey)
+    def ownerID: Rep[String]             = column[String]("owner_id")
+    def bookmarkType: Rep[BookmarkType]  = column[BookmarkType]("type")
+    def targetID: Rep[String]            = column[String]("target_id")
     def description: Rep[Option[String]] = column[Option[String]]("description")
 
     override def * : ProvenShape[Bookmark] =

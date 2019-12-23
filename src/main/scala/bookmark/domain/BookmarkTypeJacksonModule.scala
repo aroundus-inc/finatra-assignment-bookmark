@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.{
 object BookmarkTypeJacksonModule extends SimpleModule {
 
   class BookmarkTypeDeserializer extends JsonDeserializer[BookmarkType] {
+
     override def deserialize(
       p: JsonParser,
       ctx: DeserializationContext

@@ -20,6 +20,7 @@ class BookmarkControllerTest
     with Inside
     with Inspectors
     with BeforeAndAfterAll {
+
   override val server =
     new EmbeddedHttpServer(new BookmarkServer, stage = Stage.DEVELOPMENT)
 

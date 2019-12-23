@@ -6,6 +6,7 @@ import slick.jdbc.{H2Profile, JdbcProfile}
 
 @Singleton
 class Database extends JdbcProfile with H2Profile {
+
   val db: backend.DatabaseDef =
     api.Database.forConfig("h2", ConfigFactory.load())
 }

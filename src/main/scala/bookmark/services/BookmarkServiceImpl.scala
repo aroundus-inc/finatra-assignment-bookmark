@@ -6,7 +6,7 @@ import com.google.inject.{Inject, Singleton}
 
 // Write service logic
 @Singleton
-class BookmarkServiceImpl @Inject()(bookmarkRepository: BookmarkRepository)
+class BookmarkServiceImpl @Inject() (bookmarkRepository: BookmarkRepository)
     extends BookmarkService {
   override def createBookmark(bookmark: Bookmark): Bookmark = ???
 

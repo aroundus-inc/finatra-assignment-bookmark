@@ -10,6 +10,7 @@ import com.twitter.inject.app.DtabResolution
 object BookmarkServerMain extends BookmarkServer
 
 class BookmarkServer extends HttpServer with DtabResolution {
+
   override def modules: Seq[inject.Module] =
     super.modules ++ Seq(BookmarkModule)
 

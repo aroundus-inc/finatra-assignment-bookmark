@@ -18,11 +18,13 @@ class BookmarkServiceTest
     with Inside
     with Inspectors
     with BeforeAndAfterAll {
+
   override def injector: Injector =
     TestInjector(Seq(BookmarkModule, BookmarkJacksonModule)).create
 
   val bookmarkRepository: BookmarkRepository =
     injector.instance[BookmarkRepository]
+
   val bookmarkService: BookmarkService =
     injector.instance[BookmarkService]
   val mapper: FinatraObjectMapper = injector.instance[FinatraObjectMapper]
